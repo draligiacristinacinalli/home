@@ -343,6 +343,7 @@ ul {
     background-size: cover;
     background-position: center 20%;
     z-index: -2;
+    filter: blur(8px) brightness(0.7); /* Added blur for better headline focus */
     will-change: transform;
 }
 

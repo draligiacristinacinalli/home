@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const scrolled = window.scrollY;
         // Only apply parallax if we are in the hero section approx
         if (heroBg && scrolled < window.innerHeight) {
-            // Move background at half the scroll speed
-            heroBg.style.transform = `translateY(${scrolled * 0.4}px)`;
+            // Move background at half the scroll speed + keep scale for blur padding
+            heroBg.style.transform = `translateY(${scrolled * 0.4}px) scale(1.15)`;
         }
     };
     
