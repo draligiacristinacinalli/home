@@ -7,8 +7,8 @@
     --primary-light: #4A739C;
     --primary-dark: #1A3452;
     --secondary: #F8FAFC; /* Slate 50 - Background */
-    --accent: #D4AF37; /* Metallic Gold - Premium touch */
-    --accent-hover: #F8E287;
+    --accent: #E57D39; /* Brand Orange from logo icon */
+    --accent-hover: #F39C12;
     
     /* Text Colors */
     --text-main: #334155; /* Slate 700 */
@@ -657,19 +657,19 @@ ul {
 }
 
 .stars {
-    color: #CBD5E1; /* Inactive star color */
+    color: var(--accent); /* Active Orange Accent */
     font-size: 1.2rem;
     margin-bottom: 1rem;
     display: flex;
     gap: 5px;
 }
 
-.stars.hover-fill i {
-    transition: color var(--transition-fast);
+.stars i {
+    transition: transform var(--transition-fast);
 }
 
-.stars.hover-fill:hover i {
-    color: var(--primary-light); /* Fill up blue on hover */
+.stars:hover i {
+    transform: scale(1.1);
 }
 
 .testimonial-text {
