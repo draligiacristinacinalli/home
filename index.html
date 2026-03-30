@@ -297,7 +297,7 @@
                                 </select>
                             </div>
                             <div class="input-group">
-                                <input type="date" id="preferred-date" name="data_preferida" required>
+                                <input type="text" id="preferred-date" name="data_preferida" required placeholder="Data de preferência (dd/mm/aaaa)" onfocus="(this.type='date')" onblur="(this.value == '' ? this.type='text' : this.type='date')">
                             </div>
                         </div>
                         <p class="text-light text-sm text-center" style="margin-top: 20px; color: rgba(255,255,255,0.8);">Prefere agendar diretamente pelo WhatsApp? Envie uma mensagem agora para <a href="https://wa.me/5562982319870" target="_blank" style="color: var(--accent); text-decoration: none;"><strong>(62) 98231-9870</strong></a>.</p>
