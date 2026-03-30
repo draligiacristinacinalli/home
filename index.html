@@ -279,16 +279,20 @@
                 <p class="section-text text-light animate fade-in delay-1 mb-8" style="max-width:850px; margin-left:auto; margin-right:auto; color: rgba(255,255,255,0.9);">A dor não precisa ser o seu modo normal de viver. Dê o primeiro passo seguro rumo à sua melhora total: agende de forma online sua avaliação primária agora mesmo ou contate-nos pelo nosso canal direto e deixe nossa experiência cuidar de&nbsp;você.</p>
                 
                 <div class="form-container animate zoom-in delay-2">
-                    <form id="appointment-form" class="expand-on-click">
+                    <form id="appointment-form" class="expand-on-click" action="https://formsubmit.co/ligiacinalli@gmail.com" method="POST">
+                        <!-- FormSubmit Configuration -->
+                        <input type="hidden" name="_subject" value="Novo Agendamento - Site Dra. Lígia">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
                         <div class="form-grid">
                             <div class="input-group">
-                                <input type="text" id="name" required placeholder="Seu Nome Completo">
+                                <input type="text" id="name" name="nome" required placeholder="Seu Nome Completo">
                             </div>
                             <div class="input-group">
-                                <input type="tel" id="phone" required placeholder="Seu Telefone / WhatsApp">
+                                <input type="tel" id="phone" name="telefone" required placeholder="Seu Telefone / WhatsApp">
                             </div>
                             <div class="input-group">
-                                <select id="service-type" required>
+                                <select id="service-type" name="servico" required>
                                     <option value="" disabled selected>Selecione o Serviço</option>
                                     <option value="ortopedica">Fisioterapia ortopédica</option>
                                     <option value="pos-cirurgica">Reabilitação pós-cirúrgica</option>
@@ -297,7 +301,7 @@
                                 </select>
                             </div>
                             <div class="input-group">
-                                <input type="date" id="preferred-date" required>
+                                <input type="date" id="preferred-date" name="data_preferida" required>
                             </div>
                         </div>
                         <p class="text-light text-sm text-center" style="margin-top: 20px; color: rgba(255,255,255,0.8);">Prefere agendar diretamente pelo WhatsApp? Envie uma mensagem agora para <a href="https://wa.me/5562982319870" target="_blank" style="color: var(--accent); text-decoration: none;"><strong>(62) 98231-9870</strong></a>.</p>
@@ -626,9 +630,12 @@
                 <!-- Mini form -->
                 <div class="footer-col">
                     <h3 style="color: white; margin-bottom: 20px; font-family: var(--font-heading);">Envie uma Dúvida Expresso</h3>
-                    <form id="footer-chat-form" style="display: flex; flex-direction: column; gap: 10px;">
-                        <input type="text" id="footer-name" placeholder="Seu Nome Rápido" required style="padding: 10px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: white; width: 100%;">
-                        <textarea id="footer-doubt" placeholder="Como posso ajudar? Escreva sua dúvida sobre seu caso..." required rows="2" style="padding: 10px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: white; resize: none; width: 100%;"></textarea>
+                    <form id="footer-chat-form" style="display: flex; flex-direction: column; gap: 10px;" action="https://formsubmit.co/ligiacinalli@gmail.com" method="POST">
+                        <!-- FormSubmit Configuration -->
+                        <input type="hidden" name="_subject" value="Dúvida Expressa - Rodapé Site">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="text" id="footer-name" name="nome" placeholder="Seu Nome Rápido" required style="padding: 10px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: white; width: 100%;">
+                        <textarea id="footer-doubt" name="mensagem" placeholder="Como posso ajudar? Escreva sua dúvida sobre seu caso..." required rows="2" style="padding: 10px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: white; resize: none; width: 100%;"></textarea>
                         <button type="submit" class="cta-button" style="padding: 10px; font-size: 0.9rem; text-transform: uppercase; font-weight: bold; width: 100%;">Mandar Dúvida</button>
                     </form>
                 </div>

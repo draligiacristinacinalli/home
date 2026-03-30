@@ -183,27 +183,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     /* ==========================================================================
-       7. WhatsApp WhatsApp Form Integration 
+       7. Form Submission Handling (Email via FormSubmit)
        ========================================================================== */
-    const WHATSAPP_NUMBER = "5562982319870";
+    const handleFormSubmit = async (form) => {
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerText;
+        
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Enviando...";
+
+        try {
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // Success message
+                alert("Mensagem enviada com sucesso! Em breve entraremos em contato.");
+                form.reset();
+            } else {
+                throw new Error("Falha no envio");
+            }
+        } catch (error) {
+            alert("Ocorreu um erro ao enviar. Por favor, tente novamente ou use o WhatsApp.");
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerText = originalBtnText;
+        }
+    };
 
     const appointmentForm = document.getElementById("appointment-form");
     if (appointmentForm) {
         appointmentForm.addEventListener("submit", function(e) {
             e.preventDefault();
-            
-            const name = document.getElementById("name").value.trim();
-            const phone = document.getElementById("phone").value.trim();
-            const serviceSelect = document.getElementById("service-type");
-            const serviceText = serviceSelect.options[serviceSelect.selectedIndex].text;
-            const preferredDate = document.getElementById("preferred-date").value;
-            
-            if(!name || serviceSelect.value === "") return; // Required fields fallback
-
-            const msg = `Olá, Dra. Lígia! Meu nome é *${name}*.\n\nGostaria de dar o primeiro passo e agendar uma avaliação primária.\n\n*Serviço de interesse:* ${serviceText}\n*Data de preferência:* ${preferredDate.split('-').reverse().join('/')}\n*Meu telefone:* ${phone}\n\nAguardo o retorno para confirmarmos!`;
-            
-            const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-            window.open(url, '_blank');
+            handleFormSubmit(appointmentForm);
         });
     }
 
@@ -211,16 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (footerForm) {
         footerForm.addEventListener("submit", function(e) {
             e.preventDefault();
-            
-            const name = document.getElementById("footer-name").value.trim();
-            const doubt = document.getElementById("footer-doubt").value.trim();
-            
-            if(!name || !doubt) return;
-
-            const msg = `Olá, Dra. Lígia. Sou *${name}* e tenho uma dúvida expressa capturada pelo site:\n\n"${doubt}"\n\nPodemos conversar?`;
-            
-            const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-            window.open(url, '_blank');
+            handleFormSubmit(footerForm);
         });
     }
 });
