@@ -717,7 +717,7 @@ ul {
 
 .slider-container {
     max-width: 800px;
-    margin: 3rem auto 0;
+    margin: 1.5rem auto 0;
     position: relative;
     border-radius: 20px;
     overflow: hidden;
@@ -727,6 +727,7 @@ ul {
 .image-comparison {
     position: relative;
     width: 100%;
+    margin-top: 5px !important;
     height: 650px;
     /* Prevent text selection on drag */
     user-select: none;
@@ -817,15 +818,15 @@ ul {
     font-size: 1rem;
     color: var(--text-main);
     transition: all var(--transition-fast);
-    box-sizing: border-box;
+    box-sizing: border-box !important;
     display: block;
+    margin: 0;
 }
 
-.input-group select {
+.input-group input[type="date"] {
+    -webkit-appearance: none;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23334155' viewBox='0 0 256 256'%3E%3Cpath d='M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80a8,8,0,0,1,11.32-11.32L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z'%3E%3C/path%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 15px center;
+    min-width: 100%;
 }
 
 .input-group input:focus,
